@@ -182,10 +182,10 @@ def objective(trial):
     
     return np.mean(results["ACC-Balanced"])  #Escolha da métrica a ser maximizada
 
-study = optuna.create_study(study_name="MLP_200_pipeTest_None", sampler=optuna.samplers.TPESampler(seed=random_state), pruner=optuna.pruners.NopPruner, direction="maximize", storage="sqlite:///MLP_200_pipeTest_None.db", load_if_exists=True)
+study = optuna.create_study(study_name="MLP_200_pipeTest_IMPUTER_SCALER_SMOTE", sampler=optuna.samplers.TPESampler(seed=random_state), pruner=optuna.pruners.NopPruner, direction="maximize", storage="sqlite:///MLP_200_pipeTest_IMPUTER_SCALER_SMOTE_study.db", load_if_exists=True)
 study.optimize(objective, n_trials = 200, show_progress_bar=True, n_jobs=12)
 
 # Melhor resultado
 print("Melhor conjunto de hiperparâmetros:", study.best_params)
 print("Melhor acurácia balanceada:", study.best_value)
-study.trials_dataframe().to_csv(f"Optimization_results_MLP_Pipeline_None.csv", index=False)
+study.trials_dataframe().to_csv(f"Optimization_results_MLP_Pipeline_IMPUTER_SCALER_SMOTE.csv", index=False)
