@@ -305,12 +305,6 @@ for metric in cvFinalMetrics:
             aux.append(temp_metric[i2][i])
         
         cvFinalMetrics[metric].append(np.average(aux))
-
-#Print results
-for metric in cvFinalMetrics:
-    print(f"--{metric}")
-    for i,thres in enumerate(thresholdList):
-        print(f"-Threshold {thres}: {cvFinalMetrics[metric][i]}")
     
 results_df = {"Threshold": thresholdList}
 results_df.update(cvFinalMetrics)
