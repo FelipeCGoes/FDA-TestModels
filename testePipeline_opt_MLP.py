@@ -29,7 +29,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import IterativeImputer
 
-#Auxiliar funciotions
+#Auxiliar functions
 def accuracy_per_class(y_test, y_pred):
     """
     Calculate accuracy per class.
