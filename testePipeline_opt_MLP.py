@@ -258,8 +258,6 @@ for train_index, test_index in kf.split(base):
         y_pred = (y_pred_proba >= thresh).int()
 
         print(f'Threshold with {thresh}')
-        
-        y_pred = (y_pred_proba >= thresh).astype(int)
                 
         acc_pos, acc_neg, acc = accuracy_per_class(y_test, y_pred)
         f1 = f1_score(y_test, y_pred, average='binary')
